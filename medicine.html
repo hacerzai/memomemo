@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicine Info</title>
+
+<style>
+body{
+font-family:Arial;
+background:#f5f7ff;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:20px;
+max-width:400px;
+margin:auto;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+h2{color:#5A9DF2}
+
+.row{
+display:flex;
+justify-content:space-between;
+margin:10px 0;
+border-bottom:1px solid #eee;
+padding-bottom:5px;
+}
+</style>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link href="app-mobile.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="card" id="box">Loading...</div>
+
+<script>
+
+let medicines=JSON.parse(localStorage.getItem("medicines")||"[]");
+
+let id=new URLSearchParams(window.location.search).get("id");
+
+let med=medicines.find(m=>m.id===id);
+
+if(med){
+
+document.getElementById("box").innerHTML=`
+<h2>${med.name}</h2>
+
+<div class="row"><span>Time</span><b>${med.time}</b></div>
+<div class="row"><span>Dose</span><b>${med.dose}</b></div>
+<div class="row"><span>Purpose</span><b>${med.purpose}</b></div>
+`;
+
+}else{
+document.getElementById("box").innerHTML="Medicine not found";
+}
+
+</script>
+
+</body>
+</html>

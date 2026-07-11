@@ -1,0 +1,11 @@
+{
+    "name": "MEMOCARE",
+    "short_name": "MEMOCARE",
+    "description": "Memory care companion app",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#F8FAFC",
+    "theme_color": "#3B82F6",
+    "orientation": "portrait-primary"
+}
